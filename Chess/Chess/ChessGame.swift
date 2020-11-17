@@ -16,8 +16,27 @@ struct ChessGame<PieceContent> {
     }
     
     private mutating func initChessBoard(pieceContentFactory: (Player, Rank) -> PieceContent) {
-        let firstBlackPawn = Piece(col: 0, row: 6, rank: .pawn, player: .black, content: pieceContentFactory(.black, .pawn))
-        pieces.insert(firstBlackPawn)
+        for i in 0..<8 {
+            pieces.insert(Piece(col: i, row: 6, rank: .pawn, player: .black, content: pieceContentFactory(.black, .pawn)))
+            pieces.insert(Piece(col: i, row: 1, rank: .pawn, player: .white, content: pieceContentFactory(.white, .pawn)))
+        }
+        
+        for i in 0..<2 {
+            pieces.insert(Piece(col: 0 + 7 * i, row: 7, rank: .rook, player: .black, content: pieceContentFactory(.black, .rook)))
+            pieces.insert(Piece(col: 0 + 7 * i, row: 0, rank: .rook, player: .white, content: pieceContentFactory(.white, .rook)))
+            
+            pieces.insert(Piece(col: 1 + 5 * i, row: 7, rank: .knight, player: .black, content: pieceContentFactory(.black, .knight)))
+            pieces.insert(Piece(col: 1 + 5 * i, row: 0, rank: .knight, player: .white, content: pieceContentFactory(.white, .knight)))
+            
+            pieces.insert(Piece(col: 2 + 3 * i, row: 7, rank: .bishop, player: .black, content: pieceContentFactory(.black, .bishop)))
+            pieces.insert(Piece(col: 2 + 3 * i, row: 0, rank: .bishop, player: .white, content: pieceContentFactory(.white, .bishop)))
+        }
+        
+        pieces.insert(Piece(col: 3, row: 7, rank: .queen, player: .black, content: pieceContentFactory(.black, .queen)))
+        pieces.insert(Piece(col: 3, row: 0, rank: .queen, player: .white, content: pieceContentFactory(.white, .queen)))
+        
+        pieces.insert(Piece(col: 4, row: 7, rank: .king, player: .black, content: pieceContentFactory(.black, .king)))
+        pieces.insert(Piece(col: 4, row: 0, rank: .king, player: .white, content: pieceContentFactory(.white, .king)))
     }
     
     func pieceAt(col: Int, row: Int) -> Piece? {
