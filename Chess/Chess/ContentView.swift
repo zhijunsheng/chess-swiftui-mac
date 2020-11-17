@@ -9,13 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack {
+        VStack {
             ForEach(0..<8) { _ in
-                Text("♟")
+                HStack {
+                    ForEach(0..<8) { _ in
+                        PieceView()
+                    }
+                }
             }
         }
             .padding()
             .font(.largeTitle)
+    }
+}
+
+struct PieceView: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 8).stroke()
+            Text("♟")
+        }
     }
 }
 
