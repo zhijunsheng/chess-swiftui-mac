@@ -34,12 +34,12 @@ struct PieceView: View {
                 RoundedRectangle(cornerRadius: cornerRadius).stroke()
                 Text(piece?.content ?? "")
             }
-            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * fontSizeScale))
+            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * fontScaleFactor))
         }
     }
     
     let cornerRadius: CGFloat = 8
-    let fontSizeScale: CGFloat = 0.9
+    let fontScaleFactor: CGFloat = 0.9
 }
 
 struct ContentView_Previews: PreviewProvider {
