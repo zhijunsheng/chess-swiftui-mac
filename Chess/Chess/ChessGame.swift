@@ -7,17 +7,21 @@
 
 import Foundation
 
-
-/*
- 
- MVC: Model View Controller, OO
- 
- MVVM: Model View ViewModel, FP
- 
- */
-
 struct ChessGame<PieceContent> {
-    private var piecesBox: Set<Piece>
+    private var pieces: Set<Piece>
+    
+    init() {
+        pieces = []
+    }
+    
+    func pieceAt(col: Int, row: Int) -> Piece? {
+        for piece in pieces {
+            if piece.col == col && piece.row == row {
+                return piece
+            }
+        }
+        return nil
+    }
     
     enum Player {
         case white
