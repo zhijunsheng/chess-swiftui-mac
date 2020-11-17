@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        HStack {
+            ForEach(0..<8) { _ in
+                Text("♟")
+            }
+        }
             .padding()
+            .font(.largeTitle)
     }
 }
 
