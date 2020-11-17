@@ -39,7 +39,7 @@ struct PieceView: View {
     }
     
     let cornerRadius: CGFloat = 8
-    let fontSizeScale: CGFloat = 0.8
+    let fontSizeScale: CGFloat = 0.9
 }
 
 struct ContentView_Previews: PreviewProvider {
