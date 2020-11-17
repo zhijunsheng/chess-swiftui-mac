@@ -11,7 +11,8 @@ import SwiftUI
 struct ChessApp: App {
     var body: some Scene {
         WindowGroup {
-            EmojiChessGameView()
+            let emojiChessGame = EmojiChessGame()
+            EmojiChessGameView(emojiChessGame: emojiChessGame)
         }
     }
 }
