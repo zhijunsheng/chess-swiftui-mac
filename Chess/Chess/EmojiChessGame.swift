@@ -16,7 +16,11 @@ import Foundation
  */
 
 class EmojiChessGame {
-    private var chessGame: ChessGame<String> = ChessGame<String>()
+    static func createPieceContent(player: ChessGame<String>.Player, rank: ChessGame<String>.Rank) -> String {
+        return "♟"
+    }
+    
+    private var chessGame: ChessGame<String> = ChessGame<String>(pieceContentFactory: EmojiChessGame.createPieceContent(player:rank:))
     
     func pieceAt(col: Int, row: Int) -> ChessGame<String>.Piece? {
         return chessGame.pieceAt(col: col, row: row)

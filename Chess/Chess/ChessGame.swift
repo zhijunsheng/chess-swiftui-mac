@@ -10,8 +10,14 @@ import Foundation
 struct ChessGame<PieceContent> {
     private var pieces: Set<Piece>
     
-    init() {
+    init(pieceContentFactory: (Player, Rank) -> PieceContent) {
         pieces = []
+        initChessBoard(pieceContentFactory: pieceContentFactory)
+    }
+    
+    private mutating func initChessBoard(pieceContentFactory: (Player, Rank) -> PieceContent) {
+        let firstBlackPawn = Piece(col: 0, row: 6, rank: .pawn, player: .black, content: pieceContentFactory(.black, .pawn))
+        pieces.insert(firstBlackPawn)
     }
     
     func pieceAt(col: Int, row: Int) -> Piece? {
