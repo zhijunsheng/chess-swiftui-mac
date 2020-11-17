@@ -21,7 +21,7 @@ struct EmojiChessGameView: View {
             }
         }
             .padding()
-            .font(.largeTitle)
+            
     }
 }
 
@@ -29,11 +29,17 @@ struct PieceView: View {
     var piece: ChessGame<String>.Piece?
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 8).stroke()
-            Text(piece?.content ?? "")
+        GeometryReader { geometry in
+            ZStack {
+                RoundedRectangle(cornerRadius: cornerRadius).stroke()
+                Text(piece?.content ?? "")
+            }
+            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * fontSizeScale))
         }
     }
+    
+    let cornerRadius: CGFloat = 8
+    let fontSizeScale: CGFloat = 0.8
 }
 
 struct ContentView_Previews: PreviewProvider {
