@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct EmojiChessGameView: View {
     var body: some View {
         VStack {
             ForEach(0..<8) { _ in
@@ -34,6 +34,6 @@ struct PieceView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        EmojiChessGameView()
     }
 }
