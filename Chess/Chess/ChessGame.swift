@@ -40,12 +40,7 @@ struct ChessGame<PieceContent> {
     }
     
     func pieceAt(col: Int, row: Int) -> Piece? {
-        for piece in pieces {
-            if piece.col == col && piece.row == row {
-                return piece
-            }
-        }
-        return nil
+        pieces.filter { $0.col == col && $0.row == row }.first
     }
     
     enum Player {
