@@ -1,14 +1,14 @@
 //
-//  LetterChessGame.swift
-//  Chess
+//  ChessGameTests.swift
+//  ChessTests
 //
-//  Created by Golden Thumb on 2020-11-17.
+//  Created by Golden Thumb on 2020-11-18.
 //
 
-import Foundation
+import XCTest
+@testable import Chess
 
-class LetterChessGame {
-    private var chessGame: ChessGame<String> = createChessGame()
+class ChessGameTests: XCTestCase {
     
     private static func createChessGame() -> ChessGame<String> {
         return ChessGame<String> { (player, rank) -> String in
@@ -28,8 +28,15 @@ class LetterChessGame {
             }
         }
     }
-    
-    func pieceAt(col: Int, row: Int) -> ChessGame<String>.Piece? {
-        return chessGame.pieceAt(col: col, row: row)
+
+    func testPiectAt() {
+        let chessGame = ChessGameTests.createChessGame()
+        XCTAssertNil(chessGame.pieceAt(col: 0, row: 2))
+        
+        let bottomLeftRook = chessGame.pieceAt(col: 0, row: 0)
+        XCTAssertNotNil(bottomLeftRook)
+        XCTAssertTrue(bottomLeftRook!.player.isWhite)
+        XCTAssertEqual(.rook, bottomLeftRook!.rank)
     }
+
 }
