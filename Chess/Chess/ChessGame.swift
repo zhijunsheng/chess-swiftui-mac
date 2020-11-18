@@ -51,6 +51,10 @@ struct ChessGame<PieceContent> {
     enum Player {
         case white
         case black
+        
+        var isWhite: Bool {
+            self == .white
+        }
     }
     
     enum Rank {
@@ -62,7 +66,7 @@ struct ChessGame<PieceContent> {
         case pawn
     }
     
-    struct Piece: Equatable, Hashable {
+    struct Piece: Hashable {
         var col: Int
         var row: Int
         var rank: Rank

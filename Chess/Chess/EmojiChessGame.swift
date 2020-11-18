@@ -14,17 +14,17 @@ class EmojiChessGame {
         return ChessGame<String> { (player, rank) -> String in
             switch rank {
             case .king:
-                return player == .white ? "♔" : "♚"
+                return player.isWhite ? "♔" : "♚"
             case .queen:
-                return player == .white ? "♕" : "♛"
+                return player.isWhite ? "♕" : "♛"
             case .rook:
-                return player == .white ? "♖" : "♜"
+                return player.isWhite ? "♖" : "♜"
             case .bishop:
-                return player == .white ? "♗" : "♝"
+                return player.isWhite ? "♗" : "♝"
             case .knight:
-                return player == .white ? "♘" : "♞"
+                return player.isWhite ? "♘" : "♞"
             case .pawn:
-                return player == .white ? "♙" : "♟"
+                return player.isWhite ? "♙" : "♟"
             }
         }
     }
