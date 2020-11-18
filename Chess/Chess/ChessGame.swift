@@ -80,3 +80,38 @@ struct ChessGame<PieceContent> {
         }
     }
 }
+
+extension ChessGame: CustomStringConvertible {
+    var description: String {
+        var desc = ""
+        
+        for i in 0..<8 {
+            desc += "\(7 - i)"
+            for col in 0..<8 {
+                if let piece = pieceAt(col: col, row: 7 - i) {
+                    desc += " "
+                    switch piece.rank {
+                    case .king:
+                        desc += piece.player.isWhite ? "k" : "K"
+                    case .queen:
+                        desc += piece.player.isWhite ? "q" : "Q"
+                    case .rook:
+                        desc += piece.player.isWhite ? "r" : "R"
+                    case .bishop:
+                        desc += piece.player.isWhite ? "b" : "B"
+                    case .knight:
+                        desc += piece.player.isWhite ? "n" : "N"
+                    case .pawn:
+                        desc += piece.player.isWhite ? "p" : "P"
+                    }
+                } else {
+                    desc += " ."
+                }
+            }
+            desc += "\n"
+        }
+        desc += "  0 1 2 3 4 5 6 7"
+        
+        return desc
+    }
+}

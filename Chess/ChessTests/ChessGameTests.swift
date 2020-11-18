@@ -10,6 +10,23 @@ import XCTest
 
 class ChessGameTests: XCTestCase {
     
+    
+    func testDescription() {
+        let chessGame = ChessGameTests.createChessGame()
+        
+        print(chessGame)
+    }
+
+    func testPiectAt() {
+        let chessGame = ChessGameTests.createChessGame()
+        XCTAssertNil(chessGame.pieceAt(col: 0, row: 2))
+        
+        let bottomLeftRook = chessGame.pieceAt(col: 0, row: 0)
+        XCTAssertNotNil(bottomLeftRook)
+        XCTAssertTrue(bottomLeftRook!.player.isWhite)
+        XCTAssertEqual(.rook, bottomLeftRook!.rank)
+    }
+
     private static func createChessGame() -> ChessGame<String> {
         return ChessGame<String> { (player, rank) -> String in
             switch rank {
@@ -28,15 +45,4 @@ class ChessGameTests: XCTestCase {
             }
         }
     }
-
-    func testPiectAt() {
-        let chessGame = ChessGameTests.createChessGame()
-        XCTAssertNil(chessGame.pieceAt(col: 0, row: 2))
-        
-        let bottomLeftRook = chessGame.pieceAt(col: 0, row: 0)
-        XCTAssertNotNil(bottomLeftRook)
-        XCTAssertTrue(bottomLeftRook!.player.isWhite)
-        XCTAssertEqual(.rook, bottomLeftRook!.rank)
-    }
-
 }
