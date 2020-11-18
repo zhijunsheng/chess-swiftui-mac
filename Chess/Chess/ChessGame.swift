@@ -15,6 +15,17 @@ struct ChessGame<PieceContent> {
         initChessBoard(pieceContentFactory: pieceContentFactory)
     }
     
+    mutating func movePiece(fromCol: Int, fromRow: Int, toCol: Int, toRow: Int) {
+        guard let movingPiece = pieceAt(col: fromCol, row: fromRow) else { return }
+        
+        pieces.remove(movingPiece)
+        pieces.insert(Piece(col: toCol, row: toRow, rank: movingPiece.rank, player: movingPiece.player, content: movingPiece.content))
+    }
+    
+    func pieceAt(col: Int, row: Int) -> Piece? {
+        pieces.filter { $0.col == col && $0.row == row }.first
+    }
+    
     private mutating func initChessBoard(pieceContentFactory: (Player, Rank) -> PieceContent) {
         for i in 0..<8 {
             pieces.insert(Piece(col: i, row: 6, rank: .pawn, player: .black, content: pieceContentFactory(.black, .pawn)))
@@ -37,10 +48,6 @@ struct ChessGame<PieceContent> {
         
         pieces.insert(Piece(col: 4, row: 7, rank: .king, player: .black, content: pieceContentFactory(.black, .king)))
         pieces.insert(Piece(col: 4, row: 0, rank: .king, player: .white, content: pieceContentFactory(.white, .king)))
-    }
-    
-    func pieceAt(col: Int, row: Int) -> Piece? {
-        pieces.filter { $0.col == col && $0.row == row }.first
     }
     
     enum Player {

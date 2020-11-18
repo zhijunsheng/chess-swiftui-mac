@@ -10,11 +10,19 @@ import XCTest
 
 class ChessGameTests: XCTestCase {
     
+    func testMovePiece() {
+        var chessGame = ChessGameTests.createChessGame()
+        XCTAssertNotNil(chessGame.pieceAt(col: 0, row: 1))
+        XCTAssertNil(chessGame.pieceAt(col: 0, row: 3))
+        chessGame.movePiece(fromCol: 0, fromRow: 1, toCol: 0, toRow: 3)
+        print(chessGame)
+        XCTAssertNil(chessGame.pieceAt(col: 0, row: 1))
+        XCTAssertNotNil(chessGame.pieceAt(col: 0, row: 3))
+    }
     
     func testDescription() {
         let chessGame = ChessGameTests.createChessGame()
-        
-        print(chessGame)
+        XCTAssertTrue(chessGame.description.contains("0 r n b q k b n r"))
     }
 
     func testPiectAt() {
