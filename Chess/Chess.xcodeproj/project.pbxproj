@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07633FDD2566B5F500DC950A /* SwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07633FDC2566B5F500DC950A /* SwapTests.swift */; };
 		078585CA2563FCAA00EAFED0 /* ChessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078585C92563FCAA00EAFED0 /* ChessApp.swift */; };
 		078585CC2563FCAA00EAFED0 /* EmojiChessGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078585CB2563FCAA00EAFED0 /* EmojiChessGameView.swift */; };
 		078585CE2563FCAB00EAFED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078585CD2563FCAB00EAFED0 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07633FDC2566B5F500DC950A /* SwapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapTests.swift; sourceTree = "<group>"; };
 		078585C62563FCAA00EAFED0 /* Chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		078585C92563FCAA00EAFED0 /* ChessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessApp.swift; sourceTree = "<group>"; };
 		078585CB2563FCAA00EAFED0 /* EmojiChessGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiChessGameView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				078585F0256529D500EAFED0 /* Info.plist */,
 				078585FA25652A6600EAFED0 /* ChessGameTests.swift */,
+				07633FDC2566B5F500DC950A /* SwapTests.swift */,
 			);
 			path = ChessTests;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07633FDD2566B5F500DC950A /* SwapTests.swift in Sources */,
 				078585FB25652A6600EAFED0 /* ChessGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
